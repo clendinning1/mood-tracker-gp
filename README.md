@@ -1,1 +1,1 @@
-# mood-tracker-gp
+# Mood Tracker
