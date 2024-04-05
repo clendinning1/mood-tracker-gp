@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-const User = require('./users.js');
+const sequelize = require('../config/connection.js');
+const User = require('./User.js');
 
 class MoodLog extends Model {}
 
@@ -23,15 +23,17 @@ MoodLog.init(
         userId: {
             type: DataTypes.INTEGER,
             references: {
-                model: User,
+                model: 'User',
                 key: 'id',
             },
         },
     },
     {
         sequelize,
-        timestamps: true,
-        modelName: 'mood_log',
+         timestamps: false,
+         freezeTableName: true,
+         underscored: true,
+         modelName: 'MoodLog',
     }
 );
 
