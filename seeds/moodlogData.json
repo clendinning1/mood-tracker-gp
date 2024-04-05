@@ -1,0 +1,17 @@
+[
+    {
+      "mood": "happy",
+      "date": "2024-04-03",
+      "userId": 1
+    },
+    {
+      "mood": "sad",
+      "date": "2024-04-02",
+      "userId": 2
+    },
+    {
+        "mood": "angry",
+        "date": "2024-04-03",
+        "userId": 3
+    }
+]
