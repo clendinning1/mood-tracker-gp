@@ -1,11 +1,13 @@
-const sequelize = require('../config/connection');
-const { User, MoodLog } = require('../models');
-
+const { sequelize } = require('../config/connection');
+const User = require('../models/User');
+const MoodLog = require('../models/moodlog');
 const userData = require('./userData.json');
 const moodLogData = require('./moodlogData.json');
 
+console.log("sequelize:", sequelize);
+
 const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.fileSync({ force: true });
 
   const users = await User.bulkCreate(userData, {
     individualHooks: true,
@@ -23,3 +25,4 @@ const seedDatabase = async () => {
 };
 
 seedDatabase();
+

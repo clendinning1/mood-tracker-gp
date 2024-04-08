@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
-const User = require('./User.js');
 
 class MoodLog extends Model {}
 
