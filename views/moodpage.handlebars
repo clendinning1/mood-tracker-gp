@@ -44,13 +44,31 @@
     <body>
     <div class="container">
         <h1>How was your overall mood today?</h1>
+ <html>
+{{!-- This section below allows handlebars to grab the emojis from the Openmoji library --}}
+<script>
+    function get_emoji(emoji) {
+        let emoji_code = [...emoji].map(e => e.codePointAt(0).toString(16).padStart(4, '0')).join(`-`).toUpperCase()
+        if (emoji_code.length === 10) emoji_code = emoji_code.replace("-FE0F", "");
+        new_url = `https://openmoji.org/data/color/svg/${emoji_code}.svg`
+        document.write(`<img src=${new_url} style="height: 80px;">`);
+    }
+    get_emoji("😄")
+    get_emoji("😊")
+    get_emoji("😐")
+    get_emoji("😔")
+    get_emoji("😡")
+    get_emoji("😖")
+</script>
+
+</html>
         <div class="mood-options">
-            <div class="mood-option">1F603 Happy</div>
-            <div class="mood-option">😊 Content</div>
-            <div class="mood-option">😐 Neutral</div>
-            <div class="mood-option">😔 Sad</div>
-            <div class="mood-option">😡 Angry</div>
-            <div class="mood-option">😖 Anxious</div>
+            <div class="mood-option">Happy</div>
+            <div class="mood-option">Content</div>
+            <div class="mood-option">Neutral</div>
+            <div class="mood-option">Sad</div>
+            <div class="mood-option">Angry</div>
+            <div class="mood-option">Anxious</div>
         </div>
     </div>
 </body>
