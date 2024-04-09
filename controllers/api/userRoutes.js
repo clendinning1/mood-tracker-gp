@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
         if (!userData) {
             res
                 .status(400)
-                .json({ message: 'Incorrect user, try again' });
+                .json({ message: 'Incorrect login, try again' });
             return;
         }
 
@@ -52,6 +52,8 @@ router.post('/login', async (req, res) => {
 
     } catch (err) {
         res.status(400).json(err);
+        console.log("Misc. login error:");
+        console.log(err);
     }
 });
 
