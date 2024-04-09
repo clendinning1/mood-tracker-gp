@@ -48,6 +48,7 @@ router.post('/login', async (req, res) => {
             req.session.logged_in = true;
 
             res.json({ user: userData, message: 'Logged in' });
+            console.log("Logged in through user routes!");
         });
 
     } catch (err) {
