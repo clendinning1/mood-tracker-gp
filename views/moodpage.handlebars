@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mudi - Track your daily mood</title>
     <style>
+        /* Style for the mood question/prompt */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -21,6 +22,7 @@
         h1 {
             margin-bottom: 20px;
         }
+         /* Style for mood option display */
         .mood-options {
             display: flex;
             justify-content: center;
@@ -39,6 +41,39 @@
         .mood-option:hover {
             background-color: #0056b3;
         }
+         /* Style for the user menu */
+         .user-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 100%;
+            background-color: #6bb2ff;
+            color: #fff;
+            padding: 20px;
+            overflow-y: auto;
+            }
+
+         /* Style for log section */
+            .log-section {
+            margin-top: 20px;
+            }
+
+         /* Style for log entry */
+            .log-entry {
+            margin-bottom: 10px;
+            }
+         /* Style for collapse button */
+            .collapse-btn {
+            position: absolute;
+            top: 10px;
+            right: -20px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 24px;
+            background: none;
+            border: none;
+            }
     </style>
 </head>
     <body>
@@ -62,14 +97,48 @@
 </script>
 
 </html>
-        <div class="mood-options">
-            <div class="mood-option">Happy</div>
-            <div class="mood-option">Content</div>
-            <div class="mood-option">Neutral</div>
-            <div class="mood-option">Sad</div>
-            <div class="mood-option">Angry</div>
-            <div class="mood-option">Anxious</div>
+    <div class="mood-options">
+         <div class="mood-option">Happy</div>
+         <div class="mood-option">Content</div>
+         <div class="mood-option">Neutral</div>
+         <div class="mood-option">Sad</div>
+         <div class="mood-option">Angry</div>
+         <div class="mood-option">Anxious</div>
         </div>
     </div>
+
+<div class="user-menu">
+  <h3>User Menu</h3>
+  <!-- Log Section -->
+  <div class="log-section">
+    <h4>Log</h4>
+    <ul class="log-list">
+      {{#each logEntries}}
+        <li class="log-entry">{{this}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  <!-- Sign Out Button -->
+  <button id="sign-out-btn">Sign Out</button>
+</div>
+
+<script id="" type="">
+  {{#each logEntries}}
+    <li class="log-entry">{{this}}</li>
+  {{/each}}
+</script>
+<script src="/models/moodlog.js" ></script>
+<script>
+  const logEntries = [
+    "Log entry 1",
+    "Log entry 2",
+    "Log entry 3"
+  ];
+  document.getElementById("collapse-btn").addEventListener("click", () => {
+    const userMenu = document.getElementById("user-menu");
+    userMenu.style.width = userMenu.style.width === "0px" ; "250px" : "0";
+  });
+</script>
+
 </body>
 </html>
