@@ -1,0 +1,38 @@
+/* Path: public/css/style.css */
+:root 
+body {
+  background-color: rgb(49, 179, 202);
+align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  width: 100vw;
+  font-style: italic;
+  font-family: fantasy;
+  font-weight: bold;
+}
+
+#email-login,
+#password-login,
+ #name-signup,
+ #email-signup,
+ #password-signup {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 300px;
+}
+
+.btn-primary {
+  background-color: rgb(49, 179, 202);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px;
+  width: 100%;
+}
