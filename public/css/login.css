@@ -66,3 +66,7 @@ h2 {
 .form-group {
   margin-bottom: 13px;
 }
+
+nav {
+  display: none!important;
+ }
