@@ -1,0 +1,21 @@
+nav {
+    position: fixed;
+    top: 10px;
+    right: 10px; 
+    padding: 10px;
+  }
+  
+nav a {
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+.no-button {
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+#logout:hover {
+    text-decoration: underline;
+  }
