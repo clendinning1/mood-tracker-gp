@@ -7,13 +7,10 @@ const { User } = require('../../models');
 
 // signup post route
 router.post('/', async (req, res) => {
-    console.log("{1}");
     try {
-        console.log("{2}");
         const userData = await User.create(req.body);
 
         req.session.save(() => {
-            console.log("{3}");
             req.session.user_id = userData.id;
             req.session.logged_in = true;
 
@@ -22,7 +19,6 @@ router.post('/', async (req, res) => {
     } catch (err) {
         console.log("{4}");
         res.status(400).json(err);
-        console.log(err);
     }
 });
 
