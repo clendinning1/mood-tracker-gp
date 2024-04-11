@@ -27,10 +27,6 @@ router.get('/login', async (req, res) => {
 // mood page
 // TO DO: add withauth middleware so you have to be logged in to enter info on this page
 router.get('/moodpage', async (req, res) => {
-    res.render('moodpage');
-});
-
-router.get('/moodpage', async (req, res) => {
     try {
         if (!req.user) {
             return res.status(401).json({ error: 'Must be logged in to access mood logs' });
@@ -42,7 +38,7 @@ router.get('/moodpage', async (req, res) => {
             order: [['date', 'DESC']],
         });
 
-        res.status(200).json(moodLogs);
+        res.render('moodpage', {moodLogs});
     } catch (error) {
         console.error('Error fetching mood logs:', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -50,6 +46,7 @@ router.get('/moodpage', async (req, res) => {
 });
 
 router.post('/moodpage', async (req, res) => {
+    console.log(req.user);
     try {
         const { mood } = req.body; 
         if (!req.user) {
