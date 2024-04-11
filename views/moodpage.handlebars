@@ -23,15 +23,15 @@
     get_emoji("😔")
     get_emoji("😡")
     get_emoji("😖")
+
   </script>
     <div class="mood-options">
-         <button class="mood-option">Happy</button>
-         <button class="mood-option">Content</button>
-         <button class="mood-option">Neutral</button>
-         <button class="mood-option">Sad</button>
-         <button class="mood-option">Angry</button>
-         <button class="mood-option">Anxious</button>
-        </div>
+        <button class="mood-option"  data-emoji="😄">Happy</button>
+        <button class="mood-option" data-emoji="😊">Content</button>
+        <button class="mood-option" data-emoji="😐">Neutral</button>
+        <button class="mood-option" data-emoji="😔">Sad</button>
+        <button class="mood-option"  data-emoji="😡">Angry</button>
+        <button class="mood-option"  data-emoji="😖">Anxious</button>
     </div>
 
  <button id="toggleBtn">Toggle Menu</button>
@@ -43,18 +43,15 @@
     <h4>Mood Log</h4>
     <ul class="log-list">
       {{#each logEntries}}
-        <li class="log-entry">{{this}}</li>
+        <li class="log-entry">{{this.mood}} - {{this.date}}</li>
       {{/each}}
     </ul>
     </div>
   </div>
-<script>
-  {{#each logEntries}}
-    <li class="log-entry">{{this}}</li>
-  {{/each}}
-</script>
 
 <script src="/js/togglemenu.js"></script>
+<script src="/js/moodchoice.js"></script>
 
 </body>
 </html>
+
