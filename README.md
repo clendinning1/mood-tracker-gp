@@ -1,8 +1,14 @@
-# Mood Tracker
+# mudi
 ## Description
-With this website, enter a mood every day to keep track of your wellness!
+With mudi, enter a mood every day to keep track of your wellness!
 ## Usage
-[Website Link](https://mood-tracker-gp-a6fcbb48bcc3.herokuapp.com/)
+### Website Link
+https://mood-tracker-gp-a6fcbb48bcc3.herokuapp.com/
+
+### Site Preview
+![Homepage](./assets/mudi_home.png)
+
+![Moodpage](./assets/mudi_mood.png)
 ## Sources
 - [Openmoji](https://github.com/hfg-gmuend/openmoji/tree/15.0.0)
 - [Express](https://expressjs.com/)
