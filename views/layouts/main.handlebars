@@ -15,12 +15,22 @@
 <body>
 {{{body}}}
 
+<!-- Login or Logout button, depending on if the user is currently logged in -->
+
   {{#if logged_in}}
-  <script src="/public/js/logout.js"></script>
+  <button class="no-button" id="logout">logout</button> 
+  {{else}}
+  <a href="/login">login</a>
   {{/if}}
   
+  <!-- Individual page body (homepage, login, or moodpage) -->
+  {{{body}}}
 </body>
 
+<footer>
 
+</footer>
 
 </html>
+
+<script src="/js/logout.js"></script>
