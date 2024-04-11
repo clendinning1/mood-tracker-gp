@@ -11,12 +11,11 @@ router.get('/', async (req, res) => {
 
 // login page
 router.get('/login', async (req, res) => {
-    // FOR AUTH:
-    // if (req.session.logged_in) {
-    //     // if already logged in, redirect to homepage
-    //     res.redirect('/');
-    //     return;
-    // }
+    if (req.session.logged_in) {
+        // if already logged in, redirect to homepage
+        res.redirect('/');
+        return;
+    }
 
     res.render('login');
 });
