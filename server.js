@@ -19,13 +19,24 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 
-//
-// const sess = {
-// TO DO: SESSION CODE GOES HERE
-// };
-//
-// app.use(session(sess));
-//
+// SESSION
+const sess = {
+    secret: 'idk what to call this',
+    cookie: {
+        maxAge: 300000,
+        httpOnly: true,
+        secure: false,
+        sameSite: 'strict',
+    },
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    })
+};
+
+app.use(session(sess));
+
 
 
 // handlebars helpers stuff

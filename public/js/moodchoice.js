@@ -1,4 +1,9 @@
 const handleMoodChoice = async (selectedMood) => {
+    if (!selectedMood) {
+        console.error("Selected mood is null or empty.");
+        return;
+    }
+
     const data = { mood: selectedMood };
     try {
         const response = await fetch('/moodpage', {
@@ -25,3 +30,4 @@ document.querySelector('.mood-options').addEventListener('click', (event) => {
         handleMoodChoice(selectedMood); 
     }
 });
+

@@ -1,0 +1,76 @@
+.display-toggle {
+    display:none;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    text-align: center;
+}
+h1 {
+    margin-bottom: 20px;
+}
+ /* Style for mood option display */
+.mood-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.mood-option {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.mood-option:hover {
+    background-color: #0056b3;
+}
+ /* Style for the user menu */
+ .user-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 100%;
+    background-color: #6bb2ff;
+    color: #fff;
+    padding: 20px;
+    overflow-y: auto;
+    }
+
+ /* Style for log section */
+    .log-section {
+    margin-top: 20px;
+    }
+
+ /* Style for log entry */
+    .log-entry {
+    margin-bottom: 10px;
+    }
+ /* Style for menu toggle button */
+    #toggleBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+    .display-toggle {
+      display: none!important;
+    }

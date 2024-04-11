@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mudi - Track your daily mood</title>
+    <link rel="stylesheet" href="/css/moodpage.css">
+</head>
+<body>
+  <div class="container">
+        <h1>How was your overall mood today?</h1>
+{{!-- This section below allows moodpage.handlebars to grab the emojis from the Openmoji library --}}
+  <script>
+    function get_emoji(emoji) {
+        let emoji_code = [...emoji].map(e => e.codePointAt(0).toString(16).padStart(4, '0')).join(`-`).toUpperCase()
+        if (emoji_code.length === 10) emoji_code = emoji_code.replace("-FE0F", "");
+        new_url = `https://openmoji.org/data/color/svg/${emoji_code}.svg`
+        document.write(`<img src=${new_url} style="height: 80px;">`);
+    }
+    get_emoji("😄")
+    get_emoji("😊")
+    get_emoji("😐")
+    get_emoji("😔")
+    get_emoji("😡")
+    get_emoji("😖")
+  </script>
+    <div class="mood-options">
+         <button class="mood-option">Happy</button>
+         <button class="mood-option">Content</button>
+         <button class="mood-option">Neutral</button>
+         <button class="mood-option">Sad</button>
+         <button class="mood-option">Angry</button>
+         <button class="mood-option">Anxious</button>
+        </div>
+    </div>
+
+ <button id="toggleBtn">Toggle Menu</button>
+
+  <div id="menu" class="user-menu">
+    <h3>User Menu</h3>
+   <!-- Log Section -->
+    <div class="log-section">
+    <h4>Mood Log</h4>
+    <ul class="log-list">
+      {{#each logEntries}}
+        <li class="log-entry">{{this}}</li>
+      {{/each}}
+    </ul>
+    </div>
+  </div>
+<script>
+  {{#each logEntries}}
+    <li class="log-entry">{{this}}</li>
+  {{/each}}
+</script>
+
+<script src="/js/togglemenu.js"></script>
+<script src="/js/moodchoice.js"></script>
+
+</body>
+</html>

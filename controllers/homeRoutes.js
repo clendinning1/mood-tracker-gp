@@ -28,17 +28,10 @@ router.get('/login', async (req, res) => {
 // TO DO: add withauth middleware so you have to be logged in to enter info on this page
 router.get('/moodpage', async (req, res) => {
     try {
-        if (!req.user) {
-            return res.status(401).json({ error: 'Must be logged in to access mood logs' });
-        }
-
-        const userId = req.user.id;
         const moodLogs = await MoodLog.findAll({
-            where: { userId },
             order: [['date', 'DESC']],
         });
-
-        res.render('moodpage', {moodLogs});
+        res.render('moodpage', { moodLogs });
     } catch (error) {
         console.error('Error fetching mood logs:', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -46,24 +39,13 @@ router.get('/moodpage', async (req, res) => {
 });
 
 router.post('/moodpage', async (req, res) => {
-    console.log(req.user);
     try {
-        const { mood } = req.body; 
-        if (!req.user) {
-            return res.status(401).json({ error: 'Must be logged in to log mood' });
-        }
-
-        const userId = req.user.id;
-        const user = await User.findByPk(userId);
-
-        if (!user) {
-            return res.status(404).json({ error: 'User not found' });
-        }
+        const { mood } = req.body;
 
         const newMoodLog = await MoodLog.create({
             mood: mood,
             date: new Date(),
-            UserId: userId,
+            user_id: req.session.user_id,
         });
 
         res.status(201).json(newMoodLog);
