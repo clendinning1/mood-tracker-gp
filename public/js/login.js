@@ -2,6 +2,8 @@
 
 // SIGNUP FORM
 const signupFormHandler = async (event) => {
+    console.log("(1)");
+
     event.preventDefault();
 
     const name = document.querySelector('#name-signup').value.trim();
@@ -10,18 +12,24 @@ const signupFormHandler = async (event) => {
 
     if (name && email && password) {
         // send the post req ('signup post route' in controllers/api/userRoutes.js)
+        console.log("(2)");
+        
         const response = await fetch('/api/users', {
             method: 'POST',
             body: JSON.stringify({ name, email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
+        console.log("(3)");
+
         if (response.ok) {
             // redirect to moodpage if you sign up successfully
             document.location.replace('/moodpage');
+            console.log("(4)");
         } else {
             // otherwise, alert bad login
             alert(response.statusText);
+            console.log("(5)");
         }
     }
 };

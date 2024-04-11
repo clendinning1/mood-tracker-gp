@@ -7,11 +7,8 @@ const { User } = require('../../models');
 
 // signup post route
 router.post('/', async (req, res) => {
-    console.log("signup post route 1");
     try {
         const userData = await User.create(req.body);
-
-        console.log("signup post route 2");
 
         req.session.save(() => {
             req.session.user_id = userData.id;
