@@ -9,8 +9,7 @@
 <body>
   <div class="container">
         <h1>How was your overall mood today?</h1>
-<html>
-{{!-- This section below allows handlebars to grab the emojis from the Openmoji library --}}
+{{!-- This section below allows moodpage.handlebars to grab the emojis from the Openmoji library --}}
   <script>
     function get_emoji(emoji) {
         let emoji_code = [...emoji].map(e => e.codePointAt(0).toString(16).padStart(4, '0')).join(`-`).toUpperCase()
@@ -25,8 +24,6 @@
     get_emoji("😡")
     get_emoji("😖")
   </script>
-  </html>
-
     <div class="mood-options">
          <button class="mood-option">Happy</button>
          <button class="mood-option">Content</button>
@@ -51,13 +48,12 @@
     </ul>
     </div>
   </div>
-</div>  
-
 <script>
   {{#each logEntries}}
     <li class="log-entry">{{this}}</li>
   {{/each}}
 </script>
+
 <script src="/js/togglemenu.js"></script>
 
 </body>
