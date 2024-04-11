@@ -1,7 +1,7 @@
 // routes to webpages
 
-
 const router = require('express').Router();
+const authRedirect = require('../utils/auth');
 
 // home page
 router.get('/', async (req, res) => {
@@ -22,8 +22,10 @@ router.get('/login', async (req, res) => {
 
 
 // mood page
-// TO DO: add auth middleware so you have to be logged in to enter info on this page
-router.get('/moodpage', async (req, res) => {
+router.get('/moodpage', authRedirect, async (req, res) => {
+
+    
+
     res.render('moodpage');
 });
 
