@@ -1,8 +1,11 @@
+// Function to handle mood choice
 const handleMoodChoice = async (selectedMood) => {
     if (!selectedMood) {
         console.error("Selected mood is null or empty.");
         return;
     }
+
+    console.log("Selected emoji:", selectedMood); 
 
     const data = { mood: selectedMood };
     try {
@@ -24,10 +27,20 @@ const handleMoodChoice = async (selectedMood) => {
     }
 };
 
+function chooseMood(emoji) {
+    console.log('You chose: ' + emoji);
+    handleMoodChoice(emoji);
+}
+
 document.querySelector('.mood-options').addEventListener('click', (event) => {
     if (event.target.classList.contains('mood-option')) {
-        const selectedMood = event.target.textContent.trim(); 
-        handleMoodChoice(selectedMood); 
+        const selectedEmoji = event.target.getAttribute('data-emoji');
+        chooseMood(selectedEmoji);
     }
 });
+
+
+
+
+
 
