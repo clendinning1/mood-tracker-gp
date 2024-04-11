@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 
 // login page
 router.get('/login', async (req, res) => {
-    // FOR SESSIONS:
+    // FOR AUTH:
     // if (req.session.logged_in) {
     //     // if already logged in, redirect to homepage
     //     res.redirect('/');
@@ -23,7 +23,7 @@ router.get('/login', async (req, res) => {
 
 
 // mood page
-// TO DO: add withauth middleware so you have to be logged in to enter info on this page
+// TO DO: add auth middleware so you have to be logged in to enter info on this page
 router.get('/moodpage', async (req, res) => {
     res.render('moodpage');
 });
