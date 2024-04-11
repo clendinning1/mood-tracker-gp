@@ -4,84 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mudi - Track your daily mood</title>
-    <style>
-        /* Style for the mood question/prompt */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            text-align: center;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-         /* Style for mood option display */
-        .mood-options {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .mood-option {
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .mood-option:hover {
-            background-color: #0056b3;
-        }
-         /* Style for the user menu */
-         .user-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 150px;
-            height: 100%;
-            background-color: #6bb2ff;
-            color: #fff;
-            padding: 20px;
-            overflow-y: auto;
-            }
-
-         /* Style for log section */
-            .log-section {
-            margin-top: 20px;
-            }
-
-         /* Style for log entry */
-            .log-entry {
-            margin-bottom: 10px;
-            }
-         /* Style for menu toggle button */
-            .toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            }
-    </style>
+    <link rel="stylesheet" href="/css/moodpage.css">
 </head>
-    <body>
+<body>
     <div class="container">
         <h1>How was your overall mood today?</h1>
- <html>
+<html>
 {{!-- This section below allows handlebars to grab the emojis from the Openmoji library --}}
 <script>
     function get_emoji(emoji) {
@@ -97,8 +25,8 @@
     get_emoji("😡")
     get_emoji("😖")
 </script>
-
 </html>
+
     <div class="mood-options">
          <button class="mood-option">Happy</button>
          <button class="mood-option">Content</button>
@@ -109,9 +37,9 @@
         </div>
     </div>
 
- <button class="toggle" onclick="toggleMenu()">Toggle Menu</button>
+ <button id="toggleBtn">Toggle Menu</button>
 
-<div class="user-menu">
+<div id="menu" class="user-menu">
   <h3>User Menu</h3>
   <!-- Log Section -->
   <div class="log-section">
@@ -131,30 +59,6 @@
     <li class="log-entry">{{this}}</li>
   {{/each}}
 </script>
-<script src="/models/moodlog.js" ></script>
-<script>
-  const logEntries = [
-    "Log entry 1",
-    "Log entry 2",
-    "Log entry 3"
-  ];
-
-    function toggleMenu() {
-    const userMenu = document.getElementById('user-menu');
-    if (userMenu.style.display === 'none') {
-      userMenu.style.display = 'block';
-    } else {
-      userMenu.style.display = 'none';
-    }
-  }
-
- /*document.getElementById("collapse-btn").addEventListener("click", () => {
-    const userMenu = document.getElementById("user-menu");
-    userMenu.style.width = userMenu.style.width === "0px" ; "250px" : "0";
-  });
-
-   */
-</script> 
-
+<script src="/js/togglemenu.js"></script>
 </body>
 </html>
