@@ -6,7 +6,6 @@ const router = require('express').Router();
 // home page
 router.get('/', async (req, res) => {
     res.render('homepage');
-    style: 'homepage.css'
     });
 
 
@@ -18,7 +17,6 @@ router.get('/login', async (req, res) => {
     //     res.redirect('/homepage');
     //     return;
     // }
-    style: 'login.css',
 
     res.render('login');
     
@@ -29,7 +27,6 @@ router.get('/login', async (req, res) => {
 // TO DO: add withauth middleware so you have to be logged in to enter info on this page
 router.get('/moodpage', async (req, res) => {
     res.render('moodpage');
-    style: 'moodpage.css'
 });
 
 module.exports = router;
