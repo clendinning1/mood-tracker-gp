@@ -24,23 +24,14 @@
     get_emoji("😡")
     get_emoji("😖")
 
-    function chooseMood(emoji) {
-        console.log('You chose: ' + emoji);
-        const selectedMood = document.getElementById('selectedMood');
-        if (selectedMood) {
-            selectedMood.innerHTML = emoji;
-        } else {
-            console.error('Error: selectedMood element not found');
-        }
-    }
   </script>
     <div class="mood-options">
-        <button class="mood-option" onclick="chooseMood('😄')" data-emoji="😄">Happy</button>
-        <button class="mood-option" onclick="chooseMood('😊')" data-emoji="😊">Content</button>
-        <button class="mood-option" onclick="chooseMood('😐')" data-emoji="😐">Neutral</button>
-        <button class="mood-option" onclick="chooseMood('😔')" data-emoji="😔">Sad</button>
-        <button class="mood-option" onclick="chooseMood('😡')" data-emoji="😡">Angry</button>
-        <button class="mood-option" onclick="chooseMood('😖')" data-emoji="😖">Anxious</button>
+        <button class="mood-option"  data-emoji="😄">Happy</button>
+        <button class="mood-option" data-emoji="😊">Content</button>
+        <button class="mood-option" data-emoji="😐">Neutral</button>
+        <button class="mood-option" data-emoji="😔">Sad</button>
+        <button class="mood-option"  data-emoji="😡">Angry</button>
+        <button class="mood-option"  data-emoji="😖">Anxious</button>
     </div>
 
  <button id="toggleBtn">Toggle Menu</button>

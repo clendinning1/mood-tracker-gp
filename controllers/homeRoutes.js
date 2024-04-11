@@ -1,9 +1,8 @@
 // routes to webpages
 
-
 const router = require('express').Router();
-const {MoodLog, User} = require('../models');
- 
+const { MoodLog, User } = require('../models');
+const authRedirect = require('../utils/auth');
 
 // home page
 router.get('/', async (req, res) => {
@@ -13,12 +12,11 @@ router.get('/', async (req, res) => {
 
 // login page
 router.get('/login', async (req, res) => {
-    // FOR SESSIONS:
-    // if (req.session.logged_in) {
-    //     // if already logged in, redirect to homepage
-    //     res.redirect('/homepage');
-    //     return;
-    // }
+    if (req.session.logged_in) {
+        // if already logged in, redirect to homepage
+        res.redirect('/');
+        return;
+    }
 
     res.render('login');
 });
@@ -26,14 +24,26 @@ router.get('/login', async (req, res) => {
 
 // mood page
 // TO DO: add withauth middleware so you have to be logged in to enter info on this page
-router.get('/moodpage', async (req, res) => {
+function requireAuth(req, res, next) {
+    if (req.session && req.session.user_id) {
+        next();
+    } else {
+        res.status(401).send('Unauthorized');
+    }
+}
+
+router.get('/moodpage', requireAuth, async (req, res) => {
     try {
+        console.log("Fetching mood logs...");
         const userId = req.session.user_id;
 
         const moodLogs = await MoodLog.findAll({
             where: { user_id: userId }
         });
+        console.log("Mood logs:", moodLogs);
+
         const moodLogsData = moodLogs.map(moodLog => moodLog.toJSON());
+        console.log("Mood logs data:", moodLogsData);
 
         res.render('moodpage', { logEntries: moodLogsData });
     } catch (error) {
@@ -41,6 +51,8 @@ router.get('/moodpage', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
+module.exports = router;
 
 router.post('/moodpage', async (req, res) => {
     try {
