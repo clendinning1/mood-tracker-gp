@@ -18,6 +18,13 @@ MoodLog.init(
         date: {
             type: DataTypes.DATE,
             allowNull: false,
+            get() {
+                return this.getDataValue('date').toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                });
+            }
         },
         userId: {
             type: DataTypes.INTEGER,
