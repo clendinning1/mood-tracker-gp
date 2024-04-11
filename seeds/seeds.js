@@ -5,8 +5,6 @@ const MoodLog = require('../models/moodlog');
 const userData = require('./userData.json');
 const moodLogData = require('./moodlogData.json');
 
-console.log(sequelize);
-
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 

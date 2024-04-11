@@ -11,10 +11,10 @@
 <body>
 {{{body}}}
 </body>
-
-  {{#if logged_in}}
-  <script src="/public/js/logout.js"></script>
-  {{/if}}
+  <nav>
+    <button class="no-button" id="logout">logout</button>
+    <a href="/login">login</a>
+  </nav>
 </body>
 
  <footer>
@@ -23,3 +23,5 @@
 
 
 </html>
+
+<script src="/js/logout.js"></script>
